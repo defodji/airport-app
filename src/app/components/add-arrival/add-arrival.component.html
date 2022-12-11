@@ -1,0 +1,64 @@
+<div>
+  <h2>Incoming Flight Addition</h2>
+</div>
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="flightNumber">Flight number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="flightNumber"
+          required
+          [(ngModel)]="arrival.flightNumber"
+          name="flightNumber"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="from">From</label>
+        <input
+          class="form-control"
+          id="from"
+          required
+          [(ngModel)]="arrival.from"
+          name="from"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Time</label>
+        <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+      </div>
+
+      <div class="form-group">
+        <label for="airline">Airline</label>
+        <input
+          class="form-control"
+          id="airline"
+          required
+          [(ngModel)]="arrival.airline"
+          name="airline"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="aircraft">Aircraft</label>
+        <input
+          class="form-control"
+          id="aircraft"
+          [(ngModel)]="arrival.aircraft"
+          name="aircraft"
+        />
+      </div>
+
+      <button (click)="saveArrival()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Arrival flight was added successfully!</h4>
+      <button class="btn btn-success" (click)="newArrival()">Add</button>
+    </div>
+  </div>
+</div>
